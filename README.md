@@ -29,7 +29,7 @@ checks its relationship state, and cancels only confirmed outgoing requests.
 ## Install
 
 1. Download and extract the release ZIP.
-2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge.
+2. Open `chrome://extensions` in Chrome or `edge://extensions` in Edge. You can do for other browsers too.
 3. Enable **Developer mode**.
 4. Choose **Load unpacked** and select the extracted extension folder.
 5. Open Instagram and sign in normally. Complete 2FA in Instagram if asked.
