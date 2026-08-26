@@ -1,0 +1,9 @@
+{
+  "name": "instagram-pending-request-cleaner",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/parser.test.mjs && node tests/page-bridge.test.mjs && node tests/background.test.mjs && node --check background.js && node --check content.js && node --check page-bridge.js && node --check popup.js && node --check parser.js"
+  }
+}

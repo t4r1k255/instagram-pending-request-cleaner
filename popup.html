@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pending Request Cleaner</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="logo" aria-hidden="true">↗</div>
+        <div>
+          <h1>İstek Temizleyici</h1>
+          <p>Bekleyen takip isteklerini sırayla işle</p>
+        </div>
+      </header>
+
+      <section class="card" id="importCard">
+        <label class="file-picker">
+          <span>Dosya seç</span>
+          <small>XLSX, CSV, TSV, JSON veya HTML</small>
+          <input id="fileInput" type="file" accept=".xlsx,.csv,.tsv,.json,.html,.htm" />
+        </label>
+
+        <div id="mappingFields" class="hidden">
+          <div class="grid two">
+            <label>
+              Sayfa
+              <select id="sheetSelect"></select>
+            </label>
+            <label>
+              Kullanıcı sütunu
+              <select id="columnSelect"></select>
+            </label>
+          </div>
+
+          <label class="check-row">
+            <input id="headerCheckbox" type="checkbox" checked />
+            İlk satır başlıktır
+          </label>
+
+          <div class="preview" id="previewBox"></div>
+        </div>
+      </section>
+
+      <section class="card settings">
+        <h2>Ayarlar</h2>
+        <p class="mode-note">Doğrudan network modu: profil açmadan ID çözme → ön kontrol → iptal → doğrulama</p>
+        <div class="grid two">
+          <label>
+            İşlemler arası min. saniye
+            <input id="minDelay" type="number" value="1.3" min="0.5" max="300" step="0.1" />
+          </label>
+          <label>
+            İşlemler arası maks. saniye
+            <input id="maxDelay" type="number" value="2" min="0.5" max="300" step="0.1" />
+          </label>
+        </div>
+        <div class="grid two">
+          <label>
+            Parti büyüklüğü
+            <input id="batchSize" type="number" value="25" min="0" max="10000" step="1" />
+          </label>
+          <label>
+            Geçici hata tekrarı
+            <input id="maxRetries" type="number" value="1" min="0" max="3" step="1" />
+          </label>
+        </div>
+        <p class="hint">Parti için 0 tüm liste demektir. Mutation’lar sırayla gönderilir.</p>
+        <label class="check-row">
+          <input id="strictVerify" type="checkbox" />
+          Katı doğrulama — mutation’dan sonra ek durum sorgusu yap
+        </label>
+        <label class="check-row">
+          <input id="dryRun" type="checkbox" />
+          Önizleme — ID ve durum kontrolü yap, hiçbir isteği iptal etme
+        </label>
+      </section>
+
+      <div id="message" class="message hidden" role="status"></div>
+
+      <section class="card progress-card">
+        <div class="progress-heading">
+          <h2>İlerleme</h2>
+          <span id="statusBadge" class="badge">Hazır</span>
+        </div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <p id="progressText">Henüz liste yüklenmedi.</p>
+        <div class="stats">
+          <div><strong id="successCount">0</strong><span>Başarılı</span></div>
+          <div><strong id="skipCount">0</strong><span>Atlanan</span></div>
+          <div><strong id="errorCount">0</strong><span>Hatalı</span></div>
+        </div>
+        <p id="currentUser" class="current-user"></p>
+      </section>
+
+      <div class="actions">
+        <button id="startButton" class="primary" disabled>Başlat</button>
+        <button id="pauseButton" disabled>Duraklat</button>
+        <button id="resumeButton" disabled>Devam et</button>
+        <button id="exportButton" disabled>Sonuçları indir</button>
+        <button id="resetButton" class="danger" disabled>Sıfırla</button>
+      </div>
+
+      <footer>Şifre, 2FA kodu ve oturum anahtarları kaydedilmez. İşlem açık Instagram oturumunda yapılır.</footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

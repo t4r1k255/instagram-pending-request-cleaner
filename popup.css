@@ -1,0 +1,154 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #17202a;
+  background: #f5f6f8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 410px;
+  min-height: 560px;
+  margin: 0;
+  background: linear-gradient(160deg, #fafafa 0%, #f3f5f8 100%);
+}
+
+main { padding: 18px; }
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.logo {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 13px;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c3aed, #db2777, #f59e0b);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, .22);
+}
+
+h1, h2, p { margin: 0; }
+h1 { font-size: 17px; }
+header p, .hint, footer { color: #68717d; font-size: 11px; }
+h2 { font-size: 13px; margin-bottom: 10px; }
+
+.card {
+  margin-bottom: 10px;
+  padding: 13px;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .94);
+  box-shadow: 0 3px 12px rgba(30, 41, 59, .04);
+}
+
+.file-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px;
+  border: 1.5px dashed #b8bfca;
+  border-radius: 11px;
+  cursor: pointer;
+  transition: .15s ease;
+}
+
+.file-picker:hover { border-color: #7c3aed; background: #faf7ff; }
+.file-picker span { font-size: 13px; font-weight: 700; }
+.file-picker small { margin-top: 3px; color: #7a8490; }
+.file-picker input { display: none; }
+
+.grid { display: grid; gap: 8px; margin-top: 11px; }
+.grid.two { grid-template-columns: 1fr 1fr; }
+.grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+label { color: #3d4652; font-size: 11px; font-weight: 650; }
+
+input[type="number"], select {
+  width: 100%;
+  height: 34px;
+  margin-top: 5px;
+  padding: 0 8px;
+  border: 1px solid #d9dde4;
+  border-radius: 8px;
+  color: #17202a;
+  background: white;
+  outline: none;
+}
+
+input:focus, select:focus { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.check-row input { accent-color: #7c3aed; }
+.hint { margin-top: 6px; }
+.mode-note {
+  padding: 8px 9px;
+  border: 1px solid #d8e8ec;
+  border-radius: 9px;
+  color: #155e75;
+  background: #ecfeff;
+  font-size: 10px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+.hidden { display: none !important; }
+
+.preview {
+  max-height: 82px;
+  margin-top: 10px;
+  padding: 8px 10px;
+  overflow: auto;
+  border-radius: 8px;
+  color: #505a66;
+  background: #f7f8fa;
+  font: 11px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  color: #7c2d12;
+  background: #fff7ed;
+  font-size: 11px;
+}
+
+.message.ok { color: #166534; background: #f0fdf4; }
+
+.progress-heading { display: flex; justify-content: space-between; align-items: center; }
+.badge { padding: 3px 7px; border-radius: 999px; color: #5b21b6; background: #ede9fe; font-size: 10px; font-weight: 700; }
+.progress-track { height: 7px; margin: 3px 0 8px; overflow: hidden; border-radius: 999px; background: #e8ebef; }
+#progressBar { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #7c3aed, #db2777); transition: width .2s ease; }
+#progressText { color: #596270; font-size: 11px; }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+.stats div { padding: 7px; border-radius: 8px; text-align: center; background: #f7f8fa; }
+.stats strong, .stats span { display: block; }
+.stats strong { font-size: 15px; }
+.stats span { color: #747e8a; font-size: 9px; }
+.current-user { min-height: 15px; margin-top: 8px; color: #6d28d9; font-size: 11px; font-weight: 650; }
+
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+button { min-height: 36px; border: 1px solid #d8dce3; border-radius: 9px; color: #323a45; background: white; cursor: pointer; font-weight: 700; }
+button:hover:not(:disabled) { background: #f7f7f9; }
+button:disabled { cursor: not-allowed; opacity: .45; }
+button.primary { border-color: #6d28d9; color: white; background: #6d28d9; }
+button.primary:hover:not(:disabled) { background: #5b21b6; }
+button.danger { color: #b42318; }
+
+footer { margin-top: 12px; text-align: center; }

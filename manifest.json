@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram Pending Request Cleaner",
+  "version": "0.3.0",
+  "minimum_chrome_version": "111",
+  "description": "Resolve, verify, and cancel pending Instagram follow requests from a local XLSX, CSV, JSON, or HTML export.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://www.instagram.com/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Pending Request Cleaner",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["page-bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
