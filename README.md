@@ -1,5 +1,7 @@
 # Instagram Pending Request Cleaner
 
+**[English](#features) · [Türkçe](#türkçe)**
+
 A local Chrome/Edge extension that reads usernames from an XLSX, CSV, TSV,
 JSON, or HTML export, resolves each account's current Instagram user ID,
 checks its relationship state, and cancels only confirmed outgoing requests.
@@ -119,6 +121,29 @@ request, verify the mutation identity, and stop on ambiguous responses.
 Do not commit exports, result files, browser profiles, cookies, tokens, or real
 usernames. The included `.gitignore` excludes common local data folders and ZIP
 artifacts. Use sanitized examples in issues and screenshots.
+
+## Türkçe
+
+Instagram'dan dışa aktardığın XLSX, CSV, TSV, JSON veya HTML dosyasındaki kullanıcı adlarını okuyan ve **yalnızca hâlâ bekleyen** takip isteklerini iptal eden yerel bir Chrome/Edge eklentisi.
+
+> Instagram'ın resmî olmayan web uç noktalarını kullanır. Instagram bunları değiştirebilir, işlem sınırı koyabilir veya doğrulama isteyebilir. Hiçbir gecikme ayarı hesabının kısıtlanmayacağını garanti etmez. Yalnızca kendi hesabında kullan ve önce küçük bir listeyle önizleme modunu dene.
+
+**Öne çıkanlar**
+
+- Şifre istemez; harici sunucu, uzaktan kod veya analitik yok
+- XLSX okuyucu dahil, ek bağımlılık veya CDN gerektirmez
+- İşlem yapmadan önce her hesabın güncel durumunu kontrol eder; kabul edilmiş istekler asla takipten çıkarılmaz
+- Önizleme (dry-run), duraklat/devam et, toplu duraklatma ve tarayıcı kapanınca kaldığı yerden devam
+- Sonuçları CSV olarak indirme
+
+**Kurulum**
+
+1. Release ZIP dosyasını indir ve çıkart.
+2. Chrome'da `chrome://extensions`, Edge'de `edge://extensions` sayfasını aç.
+3. **Geliştirici modu**nu aç, **Paketlenmemiş öğe yükle**'ye tıkla ve çıkarttığın klasörü seç.
+4. Instagram'a normal şekilde giriş yap, ardından eklenti simgesine tıklayıp dosyanı seç.
+
+Ayrıntılı kullanım ve sonuç durumları için yukarıdaki İngilizce bölüme bakabilirsin.
 
 ## License
 
